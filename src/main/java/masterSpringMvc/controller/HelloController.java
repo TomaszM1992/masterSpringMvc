@@ -13,4 +13,9 @@ public class HelloController {
 		model.addAttribute("message", "Witaj, " + userName + "!");
 		return "resultPage";
 	}
+	
+	public String hello(@RequestParam(required=false)Model model){
+		model.addAttribute("message", "Witaj, Świecie!");
+		return "resultPage";
+	}
 }
