@@ -14,8 +14,4 @@ public class HelloController {
 		return "resultPage";
 	}
 	
-	public String hello(@RequestParam(required=false)Model model){
-		model.addAttribute("message", "Witaj, Świecie!");
-		return "resultPage";
-	}
 }
