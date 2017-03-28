@@ -12,17 +12,20 @@ import java.util.List;
 
 @Controller
 public class TweetController {
-	
 	@Autowired
 	private Twitter twitter;
 	
 	@RequestMapping("/")
-	public String hello(@RequestParam(defaultValue = "TajnikiSpringMVC4") String search, Model model){
-		SearchResults searchResults = twitter.searchOperations().search(search);
-		List<Tweet> tweets = searchResults.getTweets();
-		model.addAttribute("tweets",tweets);
-		model.addAttribute("search", search);
-		return "resultPage";
+	public String home() {
+		return "searchPage";
 	}
 	
+	@RequestMapping("/result")
+	public String hello(@RequestParam(defaultValue ="masterSpringMVC4") String search, Model model) {
+		SearchResults searchResults = twitter.searchOperations().search(search);
+		List<Tweet> tweets = searchResults.getTweets();
+		model.addAttribute("tweets", tweets);
+		model.addAttribute("search", search);
+		return "resultPage";
+		}
 }
